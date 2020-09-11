@@ -1,32 +1,51 @@
 <template>
   <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">restaurant-app-sample</h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
+    <section>
+      <h1>検索結果（{{ shops.length }}件）</h1>
+      <p v-if="error">データの取得に失敗しました。</p>
+      <ul>
+        <li v-for="shop in shops" :key="shop.id">
+          <p>{{ shop.id }}</p>
+          <p>{{ shop.name }}</p>
+        </li>
+      </ul>
+    </section>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      shops: [],
+      error: false,
+    }
+  },
+  mounted() {
+    this.$axios('http://localhost:3000/api/gourmet/v1/', {
+      // パラメータの設定
+      params: {
+        key: process.env.apikey,
+        lat: '35.681236',
+        lng: '139.767125',
+        format: 'json',
+      },
+    })
+      .then(this.setShop)
+      .catch(this.setError)
+  },
+  methods: {
+    // レスポンスあとの処理
+    setShop(res) {
+      this.shops = res.data.results.shop
+    },
+    // エラーが発生した場合の処理
+    setError(err) {
+      console.log(err)
+      this.error = true
+    },
+  },
+}
 </script>
 
 <style>
@@ -37,27 +56,5 @@ export default {}
   justify-content: center;
   align-items: center;
   text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
 }
 </style>

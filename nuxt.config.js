@@ -59,10 +59,21 @@ export default {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    proxy: true,
+  },
+  proxy: {
+    '/api': {
+      target: 'http://webservice.recruit.co.jp/hotpepper',
+      pathRewrite: { '^/api': '' },
+    },
+  },
   /*
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
    */
   build: {},
+  env: {
+    apikey: '84cb53550715ea81',
+  },
 }
