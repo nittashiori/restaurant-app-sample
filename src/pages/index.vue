@@ -14,6 +14,11 @@
 </template>
 
 <script>
+const getCurrentPosition = () => {
+  return new Promise((resolve, reject) => {
+    navigator.geolocation.getCurrentPosition(resolve, reject)
+  })
+}
 export default {
   data() {
     return {
@@ -21,9 +26,12 @@ export default {
       error: false,
     }
   },
-  mounted() {
-    navigator.geolocation.getCurrentPosition((position) => {
-      this.$axios('http://localhost:3000/api/gourmet/v1/', {
+  async mounted() {
+    // 現在位置の取得
+    const position = await getCurrentPosition().catch(this.setError)
+    const { data } = await this.$axios(
+      'http://localhost:3000/api/gourmet/v1/',
+      {
         // パラメータの設定
         params: {
           key: process.env.apikey,
@@ -31,10 +39,12 @@ export default {
           lng: position.coords.longitude, // 取得した経度を設定
           format: 'json',
         },
-      })
-        .then(this.setShop)
-        .catch(this.setError)
-    }, this.setError)
+      }
+    ).catch((err) => {
+      this.setError(err)
+    })
+    // 店の一覧を設定
+    this.shops = data.results.shop
   },
   methods: {
     // レスポンスあとの処理
