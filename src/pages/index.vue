@@ -22,17 +22,19 @@ export default {
     }
   },
   mounted() {
-    this.$axios('http://localhost:3000/api/gourmet/v1/', {
-      // パラメータの設定
-      params: {
-        key: process.env.apikey,
-        lat: '35.681236',
-        lng: '139.767125',
-        format: 'json',
-      },
-    })
-      .then(this.setShop)
-      .catch(this.setError)
+    navigator.geolocation.getCurrentPosition((position) => {
+      this.$axios('http://localhost:3000/api/gourmet/v1/', {
+        // パラメータの設定
+        params: {
+          key: process.env.apikey,
+          lat: position.coords.latitude, // 取得した緯度を設定
+          lng: position.coords.longitude, // 取得した経度を設定
+          format: 'json',
+        },
+      })
+        .then(this.setShop)
+        .catch(this.setError)
+    }, this.setError)
   },
   methods: {
     // レスポンスあとの処理
