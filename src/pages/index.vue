@@ -57,8 +57,6 @@ export default {
       this.error = true
     },
     accessDetail(shop) {
-      // 店舗情報をstoreで保存
-      this.$store.dispatch('shops/setShop', shop)
       this.$router.push(`/${shop.id}`)
     },
   },
