@@ -1,4 +1,9 @@
+import { addDecorator } from '@storybook/vue'
+import { withKnobs } from '@storybook/addon-knobs'
 
-export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
-}
+import Vue from 'vue'
+import Vuex from 'vuex'
+
+Vue.use(Vuex)
+
+addDecorator(withKnobs)

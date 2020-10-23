@@ -3,7 +3,7 @@ export default {
    ** Nuxt rendering mode
    ** See https://nuxtjs.org/api/configuration-mode
    */
-  mode: 'spa',
+  ssr: 'false',
   srcDir: 'src/',
   /*
    ** Nuxt target
@@ -54,7 +54,15 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/style-resources',
   ],
+  styleResources: {
+    scss: [
+      '@/assets/scss/variables.scss',
+      '@/assets/scss/mixins.scss',
+      '@/assets/scss/reset.scss',
+    ],
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
