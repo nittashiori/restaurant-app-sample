@@ -54,7 +54,15 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/style-resources',
   ],
+  styleResources: {
+    scss: [
+      '@/assets/scss/variables.scss',
+      '@/assets/scss/mixins.scss',
+      '@/assets/scss/reset.scss',
+    ],
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
