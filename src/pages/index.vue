@@ -2,6 +2,7 @@
   <div class="container">
     <section>
       <h1>検索結果（{{ shops.length }}件）</h1>
+      <Logo :style="logoColor" />
       <p v-if="error">データの取得に失敗しました。</p>
       <ul>
         <li v-for="shop in shops" :key="shop.id" @click="accessDetail(shop)">
@@ -14,17 +15,29 @@
 </template>
 
 <script>
+import Logo from '~/components/Atoms/Logo'
+
 const getCurrentPosition = () => {
   return new Promise((resolve, reject) => {
     navigator.geolocation.getCurrentPosition(resolve, reject)
   })
 }
 export default {
+  components: {
+    Logo,
+  },
   data() {
     return {
       shops: [],
       error: false,
     }
+  },
+  computed: {
+    logoColor() {
+      return {
+        color: '#999',
+      }
+    },
   },
   async mounted() {
     // 現在位置の取得
