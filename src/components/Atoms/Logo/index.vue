@@ -30,7 +30,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .logo {
   animation: 1s appear;
   color: $black-color;

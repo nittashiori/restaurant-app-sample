@@ -8,7 +8,7 @@ export default {
   },
 }
 
-export const logo = (args, { argTypes }) => ({
+export const $default = (argTypes) => ({
   props: Object.keys(argTypes),
   components: { Logo },
   template: '<Logo v-bind="$props" />',
