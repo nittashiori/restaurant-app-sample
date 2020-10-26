@@ -27,6 +27,7 @@ export default {
   background: none;
   border: none;
   color: $text-color;
+  @include font-bold;
   position: relative;
   &::after {
     content: '';
