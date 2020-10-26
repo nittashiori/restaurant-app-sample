@@ -40,3 +40,14 @@
   top: 50%;
   transform: translateY(-50%);
 }
+
+/// webフォント設定
+@mixin font-normal {
+  font-family: "Noto Sans JP", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "Osaka", sans-serif;
+  font-weight: 400;
+}
+
+@mixin font-bold {
+  font-family: "Noto Sans JP", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "Osaka", sans-serif;
+  font-weight: 700;
+}

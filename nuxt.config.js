@@ -55,7 +55,13 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/style-resources',
+    'nuxt-webfontloader',
   ],
+  webfontloader: {
+    google: {
+      families: ['Noto+Sans+JP:wght@400;700'],
+    },
+  },
   styleResources: {
     scss: [
       '@/assets/scss/variables.scss',
