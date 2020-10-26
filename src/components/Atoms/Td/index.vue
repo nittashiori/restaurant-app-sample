@@ -8,5 +8,6 @@
   padding: 24px 16px;
   border-top: 1px solid $border-color;
   @include font-normal;
+  line-height: 160%;
 }
 </style>
