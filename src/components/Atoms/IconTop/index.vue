@@ -1,5 +1,5 @@
 <template>
-  <div class="icon-top" :style="style">
+  <div :class="classes">
     <svg viewBox="0 0 64 64">
       <path
         fill-rule="evenodd"
@@ -15,12 +15,17 @@ export default {
   props: {
     color: {
       type: String,
+      default: 'default',
+      validator(value) {
+        return ['default', 'white', 'primary'].includes(value)
+      },
     },
   },
   computed: {
-    style() {
+    classes() {
       return {
-        color: this.color,
+        [`icon-top`]: true,
+        [`icon-top--${this.color}`]: true,
       }
     },
   },
@@ -30,7 +35,15 @@ export default {
 <style scoped lang="scss">
 .icon-top {
   width: 64px;
-  color: $black-color;
+  &--default {
+    color: $black-color;
+  }
+  &--white {
+    color: $white-color;
+  }
+  &--primary {
+    color: $primary-color;
+  }
   svg {
     fill: currentColor;
   }

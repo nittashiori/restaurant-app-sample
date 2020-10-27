@@ -1,19 +1,20 @@
-import IconTop from './index.vue'
+import ButtonTop from './index.vue'
 
 export default {
-  title: 'Atoms/IconTop',
-  component: IconTop,
+  title: 'Modules/ButtonTop',
+  component: ButtonTop,
   argTypes: {
     color: {
       control: { type: 'select', options: ['default', 'white', 'primary'] },
     },
+    onClick: { action: 'clicked' },
   },
 }
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  components: { IconTop },
-  template: '<IconTop v-bind="$props" />',
+  components: { ButtonTop },
+  template: '<ButtonTop v-bind="$props" @onClick="onClick" />',
 })
 
 export const Default = Template.bind({})
