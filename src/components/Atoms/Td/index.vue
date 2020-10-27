@@ -4,10 +4,14 @@
 
 <style lang="scss" scoped>
 .td {
-  max-width: 100%;
+  width: 100%;
   padding: 24px 16px;
   border-top: 1px solid $border-color;
   @include font-normal;
   line-height: 160%;
+  @include media(md, max) {
+    padding: 8px;
+    @include fts(8.75);
+  }
 }
 </style>
