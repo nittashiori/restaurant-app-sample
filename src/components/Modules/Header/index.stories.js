@@ -1,8 +1,8 @@
-import Logo from './index.vue'
+import Header from './index.vue'
 
 export default {
-  title: 'Atoms/Logo',
-  component: Logo,
+  title: 'Modules/Header',
+  component: Header,
   argTypes: {
     color: {
       control: { type: 'select', options: ['default', 'white', 'primary'] },
@@ -12,8 +12,8 @@ export default {
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  components: { Logo },
-  template: '<Logo v-bind="$props" />',
+  components: { Header },
+  template: '<Header v-bind="$props" />',
 })
 
 export const Default = Template.bind({})

@@ -2,7 +2,7 @@
   <div class="container">
     <section>
       <h1>検索結果（{{ shops.length }}件）</h1>
-      <Logo :style="logoColor" />
+      <Header color="default" />
       <KV :src="require('~/assets/images/kv.jpg')" alt="キービジュアルです" />
       <p v-if="error">データの取得に失敗しました。</p>
       <ul>
@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import Logo from '~/components/Atoms/Logo'
+import Header from '~/components/Modules/Header'
 import KV from '~/components/Atoms/KV'
 
 const getCurrentPosition = () => {
@@ -26,7 +26,7 @@ const getCurrentPosition = () => {
 }
 export default {
   components: {
-    Logo,
+    Header,
     KV,
   },
   data() {
@@ -34,13 +34,6 @@ export default {
       shops: [],
       error: false,
     }
-  },
-  computed: {
-    logoColor() {
-      return {
-        color: '#999',
-      }
-    },
   },
   async mounted() {
     // 現在位置の取得
