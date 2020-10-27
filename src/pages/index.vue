@@ -3,6 +3,7 @@
     <section>
       <h1>検索結果（{{ shops.length }}件）</h1>
       <Logo :style="logoColor" />
+      <KV :src="require('~/assets/images/kv.jpg')" alt="キービジュアルです" />
       <p v-if="error">データの取得に失敗しました。</p>
       <ul>
         <li v-for="shop in shops" :key="shop.id" @click="accessDetail(shop)">
@@ -16,6 +17,7 @@
 
 <script>
 import Logo from '~/components/Atoms/Logo'
+import KV from '~/components/Atoms/KV'
 
 const getCurrentPosition = () => {
   return new Promise((resolve, reject) => {
@@ -25,6 +27,7 @@ const getCurrentPosition = () => {
 export default {
   components: {
     Logo,
+    KV,
   },
   data() {
     return {
