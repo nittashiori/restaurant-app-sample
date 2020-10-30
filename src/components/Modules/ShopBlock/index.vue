@@ -60,6 +60,7 @@ export default {
   align-items: flex-start;
   padding: 32px;
   background: $white-color;
+  box-shadow: 0 18px 32px -12px rgba(45, 45, 45, 0.1);
   @include media(md, max) {
     padding: 16px;
   }
