@@ -29,7 +29,7 @@ export default {
     padding: 16px 20px;
   }
   .logo {
-    max-width: 572px;
+    max-width: 480px;
     min-width: 200px;
     width: 50%;
   }

@@ -59,7 +59,7 @@ export default {
   ],
   webfontloader: {
     google: {
-      families: ['Noto+Sans+JP:wght@400;700'],
+      families: ['Noto+Sans+JP:wght@400;700', 'Montserrat:wght@800'],
     },
   },
   styleResources: {
