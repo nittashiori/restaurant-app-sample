@@ -3,19 +3,22 @@ import ShopBlock from './index.vue'
 export default {
   title: 'Modules/ShopBlock',
   component: ShopBlock,
+  argTypes: {
+    onClick: { action: 'clicked' },
+  },
 }
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { ShopBlock },
-  template: '<ShopBlock v-bind="$props" />',
+  template: '<ShopBlock v-bind="$props" @onClick="onClick" />',
 })
 
 export const Default = Template.bind({})
 Default.args = {
-  href: '#',
   src: 'images/shop-image-dummy.jpg',
   alt: '店舗イメージ',
+  shopname: '店舗名',
   category: '居酒屋',
   address: '埼玉県あいうえお市かきくけこ1-23-4 さしすせそビル1F',
   businessHour:

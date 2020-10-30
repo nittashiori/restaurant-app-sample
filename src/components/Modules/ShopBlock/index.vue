@@ -1,8 +1,8 @@
 <template>
-  <a class="shop-block" :href="href">
+  <div class="shop-block" @click="onClick">
     <div class="shop-block__image"><img :src="src" :alt="alt" /></div>
     <div class="shop-block__body">
-      <h2 class="shop-block__title">店舗名</h2>
+      <h2 class="shop-block__title">{{ shopname }}</h2>
       <Category :label="category" />
       <ul class="shop-info">
         <li class="shop-info__item">{{ address }}</li>
@@ -10,7 +10,7 @@
         <li class="shop-info__item">{{ budget }}</li>
       </ul>
     </div>
-  </a>
+  </div>
 </template>
 
 <script>
@@ -20,15 +20,15 @@ export default {
     Category,
   },
   props: {
-    href: {
-      type: String,
-      required: true,
-    },
     src: {
       type: String,
       required: true,
     },
     alt: {
+      type: String,
+      required: true,
+    },
+    shopname: {
       type: String,
       required: true,
     },
@@ -49,6 +49,11 @@ export default {
       required: true,
     },
   },
+  methods: {
+    onClick() {
+      this.$emit('onClick')
+    },
+  },
 }
 </script>
 
@@ -60,12 +65,15 @@ export default {
   align-items: flex-start;
   padding: 32px;
   background: $white-color;
-  box-shadow: 0 18px 32px -12px rgba(45, 45, 45, 0.1);
+  box-shadow: 0 6px 12px -6px rgba(45, 45, 45, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
   @include media(md, max) {
     padding: 16px;
   }
 }
 .shop-block:hover {
+  box-shadow: 0 12px 24px 0px rgba(45, 45, 45, 0.1);
   .shop-block__image {
     border-radius: 20px;
     img {
@@ -74,9 +82,12 @@ export default {
   }
 }
 .shop-block__image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: var(--pc-size);
   height: var(--pc-size);
-  background: #f9f9f9;
+  background: $primary-color;
   overflow: hidden;
   transition: all 0.3s ease;
   @include media(md, max) {
