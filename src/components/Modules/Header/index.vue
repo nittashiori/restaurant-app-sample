@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <Logo :color="color" />
+    <Logo color="white" />
   </div>
 </template>
 
@@ -23,8 +23,14 @@ export default {
 <style lang="scss" scoped>
 .header {
   width: 100%;
+  padding: 24px 40px;
+  background: $primary-color;
+  @include media(md, max) {
+    padding: 16px 20px;
+  }
   .logo {
     max-width: 572px;
+    min-width: 200px;
     width: 50%;
   }
 }

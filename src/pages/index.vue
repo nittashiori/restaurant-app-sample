@@ -1,17 +1,21 @@
 <template>
-  <div class="container">
-    <section>
-      <h1>検索結果（{{ shops.length }}件）</h1>
+  <div>
+    <header>
       <Header color="default" />
-      <KV :src="require('~/assets/images/kv.jpg')" alt="キービジュアルです" />
-      <p v-if="error">データの取得に失敗しました。</p>
-      <ul>
-        <li v-for="shop in shops" :key="shop.id" @click="accessDetail(shop)">
-          <p>{{ shop.id }}</p>
-          <p>{{ shop.name }}</p>
-        </li>
-      </ul>
-    </section>
+    </header>
+    <div class="container">
+      <section>
+        <h1>検索結果（{{ shops.length }}件）</h1>
+        <KV :src="require('~/assets/images/kv.jpg')" alt="キービジュアルです" />
+        <p v-if="error">データの取得に失敗しました。</p>
+        <ul>
+          <li v-for="shop in shops" :key="shop.id" @click="accessDetail(shop)">
+            <p>{{ shop.id }}</p>
+            <p>{{ shop.name }}</p>
+          </li>
+        </ul>
+      </section>
+    </div>
   </div>
 </template>
 
