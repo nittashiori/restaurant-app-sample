@@ -5,7 +5,7 @@ export default {
   component: ButtonTop,
   argTypes: {
     color: {
-      control: { type: 'select', options: ['default', 'white', 'primary'] },
+      control: { type: 'select', options: ['default', 'white'] },
     },
     onClick: { action: 'clicked' },
   },
@@ -27,7 +27,7 @@ White.args = {
   color: 'white',
 }
 
-export const Primary = Template.bind({})
-Primary.args = {
-  color: 'primary',
-}
+// export const Primary = Template.bind({})
+// Primary.args = {
+//   color: 'primary',
+// }

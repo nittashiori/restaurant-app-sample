@@ -1,16 +1,27 @@
 <template>
-  <div>
+  <div ref="targetContent">
     <Header color="default" />
     <Nuxt />
+    <ButtonTop color="white" @onClick="startScroll()" />
   </div>
 </template>
 
 <script>
 import Header from '~/components/Modules/Header'
+import ButtonTop from '~/components/Modules/ButtonTop'
 
 export default {
   components: {
     Header,
+    ButtonTop,
+  },
+  methods: {
+    startScroll() {
+      this.$refs.targetContent.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      })
+    },
   },
 }
 </script>
@@ -36,5 +47,9 @@ html {
   max-width: 960px;
   margin: 0 auto;
   padding: 0 20px;
+}
+
+.button-top {
+  margin: 40px 0 0;
 }
 </style>
