@@ -3,12 +3,6 @@
     <header>
       <Header color="default" />
     </header>
-    <div class="kv-wrap">
-      <KV :src="require('~/assets/images/kv.jpg')" alt="キービジュアルです" />
-      <p class="kv-copy">
-        近くにあるお店を<span class="kv-copy--rotate">10</span>件表示します
-      </p>
-    </div>
     <div class="container">
       <div class="result">
         <p>検索結果（{{ shops.length }}件）</p>
@@ -34,7 +28,6 @@
 
 <script>
 import Header from '~/components/Modules/Header'
-import KV from '~/components/Atoms/KV'
 import ShopBlock from '~/components/Modules/ShopBlock'
 
 const getCurrentPosition = () => {
@@ -45,7 +38,6 @@ const getCurrentPosition = () => {
 export default {
   components: {
     Header,
-    KV,
     ShopBlock,
   },
   data() {
@@ -98,81 +90,12 @@ export default {
   margin: 0 auto;
   padding: 0 20px;
 }
-.kv-wrap {
-  display: flex;
-  flex-direction: row-reverse;
-  position: relative;
-  @include media(md, max) {
-    flex-direction: column;
-  }
-  &::before {
-    display: block;
-    content: '';
-    width: 100%;
-    height: calc(100% - 80px);
-    background: $primary-color;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -2;
-    @include media(md, max) {
-      height: 100%;
-    }
-  }
-  &::after {
-    display: block;
-    content: 'Hot Pepper\AGourmet';
-    white-space: pre;
-    color: $white-color;
-    font-size: 10vw;
-    line-height: 0.9;
-    font-family: $font-en;
-    opacity: 0.1;
-    position: absolute;
-    bottom: 70px;
-    left: 0;
-    z-index: -1;
-    @include media(md, max) {
-      content: 'Hot Pepper Gourmet';
-      font-size: 10vw;
-      bottom: -5px;
-    }
-  }
-}
-.kv {
-  width: 100%;
-  max-width: 800px;
-  margin: 0 80px;
-  @include media(md, max) {
-    max-width: calc(100% - 40px);
-    margin: auto;
-  }
-}
-.kv-copy {
-  width: 10vw;
-  margin: 40px auto;
-  @include font-bold;
-  color: $white-color;
-  writing-mode: vertical-rl;
-  @include media(md, max) {
-    width: 100%;
-    text-align: center;
-    writing-mode: horizontal-tb;
-  }
-  &--rotate {
-    display: inline-block;
-    transform: rotate(-90deg);
-    line-height: 1.2;
-    @include media(md, max) {
-      transform: rotate(0);
-    }
-  }
-}
 .result {
   margin: 40px auto;
   &--error {
-    color: $primary-color;
+    text-align: center;
     @include font-bold;
+    @include fts(12.5);
   }
 }
 .shop-block {
