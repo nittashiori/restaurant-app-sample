@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <Logo color="white" />
+    <Logo color="white" @onClick="onClick" />
   </header>
 </template>
 
@@ -15,6 +15,11 @@ export default {
     color: {
       type: String,
       required: true,
+    },
+  },
+  methods: {
+    onClick() {
+      this.$emit('onClick')
     },
   },
 }
@@ -32,6 +37,7 @@ export default {
     max-width: 480px;
     min-width: 200px;
     width: 32%;
+    cursor: pointer;
   }
 }
 </style>

@@ -7,13 +7,14 @@ export default {
     color: {
       control: { type: 'select', options: ['default', 'white', 'primary'] },
     },
+    onClick: { action: 'clicked' },
   },
 }
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { Header },
-  template: '<Header v-bind="$props" />',
+  template: '<Header v-bind="$props" @onClick="onClick" />',
 })
 
 export const Default = Template.bind({})

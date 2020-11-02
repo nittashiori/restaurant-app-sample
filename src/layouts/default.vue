@@ -1,6 +1,6 @@
 <template>
   <div ref="targetContent">
-    <Header color="default" />
+    <Header color="default" @onClick="backTop()" />
     <Nuxt />
     <ButtonTop color="white" @onClick="startScroll()" />
   </div>
@@ -21,6 +21,9 @@ export default {
         behavior: 'smooth',
         block: 'start',
       })
+    },
+    backTop() {
+      return this.$router.push(`/`)
     },
   },
 }
