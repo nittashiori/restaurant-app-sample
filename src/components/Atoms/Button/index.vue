@@ -29,6 +29,7 @@ export default {
   color: $text-color;
   @include font-bold;
   position: relative;
+  cursor: pointer;
   &::after {
     content: '';
     width: 100%;
@@ -43,6 +44,9 @@ export default {
     &::after {
       animation: flow-line 0.6s ease;
     }
+  }
+  &:focus {
+    outline: none;
   }
 }
 
