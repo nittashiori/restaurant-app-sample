@@ -11,8 +11,16 @@
       </div>
     </div>
     <div class="coupon-area">
-      <Coupon class="coupon--pc" :url="shop.coupon_urls.pc" />
-      <Coupon class="coupon--sp" :url="shop.coupon_urls.sp" />
+      <Coupon
+        class="coupon--pc"
+        :url="shop.coupon_urls.pc"
+        @onClick="copy(shop.coupon_urls.pc)"
+      />
+      <Coupon
+        class="coupon--sp"
+        :url="shop.coupon_urls.sp"
+        @onClick="copy(shop.coupon_urls.sp)"
+      />
     </div>
     <div class="table-area">
       <TableBlock title="住所" :text="shop.address" />
@@ -65,6 +73,10 @@ export default {
   methods: {
     back() {
       return this.$router.push(`/`)
+    },
+    copy(msg) {
+      this.$copyText(msg)
+      alert('クーポンコードをコピーしました')
     },
   },
 }
