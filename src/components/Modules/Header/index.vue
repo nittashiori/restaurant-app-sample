@@ -1,7 +1,7 @@
 <template>
-  <div class="header">
+  <header class="header">
     <Logo color="white" />
-  </div>
+  </header>
 </template>
 
 <script>
