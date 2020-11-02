@@ -56,6 +56,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/style-resources',
     'nuxt-webfontloader',
+    'nuxt-clipboard2',
   ],
   webfontloader: {
     google: {
