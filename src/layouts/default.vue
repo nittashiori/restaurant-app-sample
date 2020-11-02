@@ -30,4 +30,11 @@ html {
   box-sizing: border-box;
   margin: 0;
 }
+
+.container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
 </style>

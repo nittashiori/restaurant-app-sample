@@ -77,12 +77,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
-  width: 100%;
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
 .result {
   margin: 40px auto;
   @include media(md, max) {
