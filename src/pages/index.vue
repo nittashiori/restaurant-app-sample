@@ -3,12 +3,6 @@
     <header>
       <Header color="default" />
     </header>
-    <div class="kv-wrap">
-      <KV :src="require('~/assets/images/kv.jpg')" alt="キービジュアルです" />
-      <p class="kv-copy">
-        近くにあるお店を<span class="kv-copy--rotate">10</span>件表示します
-      </p>
-    </div>
     <div class="container">
       <div class="result">
         <p>検索結果（{{ shops.length }}件）</p>
@@ -34,7 +28,6 @@
 
 <script>
 import Header from '~/components/Modules/Header'
-import KV from '~/components/Atoms/KV'
 import ShopBlock from '~/components/Modules/ShopBlock'
 
 const getCurrentPosition = () => {
@@ -45,7 +38,6 @@ const getCurrentPosition = () => {
 export default {
   components: {
     Header,
-    KV,
     ShopBlock,
   },
   data() {
@@ -171,8 +163,9 @@ export default {
 .result {
   margin: 40px auto;
   &--error {
-    color: $primary-color;
+    text-align: center;
     @include font-bold;
+    @include fts(12.5);
   }
 }
 .shop-block {
