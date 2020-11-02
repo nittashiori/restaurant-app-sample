@@ -20,7 +20,7 @@ export default {
       required: true,
     },
     text: {
-      type: String,
+      type: [String, Number],
       required: true,
     },
   },

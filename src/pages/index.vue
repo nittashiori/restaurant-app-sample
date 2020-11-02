@@ -1,33 +1,27 @@
 <template>
-  <div>
-    <header>
-      <Header color="default" />
-    </header>
-    <div class="container">
-      <div class="result">
-        <p>検索結果（{{ shops.length }}件）</p>
-        <p v-if="error" class="result--error">データの取得に失敗しました。</p>
-      </div>
-      <div class="shop-list">
-        <ShopBlock
-          v-for="shop in shops"
-          :key="shop.id"
-          :src="shop.photo.pc.l"
-          :alt="shop.id"
-          :shopname="shop.name"
-          :category="shop.genre.name"
-          :address="shop.address"
-          :business-hour="shop.open"
-          :budget="shop.budget.average"
-          @onClick="accessDetail(shop)"
-        />
-      </div>
+  <div class="container">
+    <div class="result">
+      <p>検索結果（{{ shops.length }}件）</p>
+      <p v-if="error" class="result--error">データの取得に失敗しました。</p>
+    </div>
+    <div class="shop-list">
+      <ShopBlock
+        v-for="shop in shops"
+        :key="shop.id"
+        :src="shop.photo.pc.l"
+        :alt="shop.id"
+        :shopname="shop.name"
+        :category="shop.genre.name"
+        :address="shop.address"
+        :business-hour="shop.open"
+        :budget="shop.budget.average"
+        @onClick="accessDetail(shop)"
+      />
     </div>
   </div>
 </template>
 
 <script>
-import Header from '~/components/Modules/Header'
 import ShopBlock from '~/components/Modules/ShopBlock'
 
 const getCurrentPosition = () => {
@@ -37,7 +31,6 @@ const getCurrentPosition = () => {
 }
 export default {
   components: {
-    Header,
     ShopBlock,
   },
   data() {
@@ -84,14 +77,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
-  width: 100%;
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
 .result {
   margin: 40px auto;
+  @include media(md, max) {
+    margin: 20px auto;
+  }
   &--error {
     text-align: center;
     @include font-bold;

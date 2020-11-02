@@ -16,6 +16,5 @@ const Template = (args, { argTypes }) => ({
 
 export const Default = Template.bind({})
 Default.args = {
-  href: '/',
   url: 'http://hogehogehogehoge.hoge',
 }

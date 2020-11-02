@@ -2,7 +2,7 @@
   <div class="coupon">
     <div class="coupon__title">クーポン</div>
     <div class="coupon__body">
-      <a :href="href" class="coupon__link" @click="onClick">{{ url }}</a>
+      <a class="coupon__link" @click="onClick">{{ url }}</a>
     </div>
   </div>
 </template>
@@ -10,10 +10,6 @@
 <script>
 export default {
   props: {
-    href: {
-      type: String,
-      required: true,
-    },
     url: {
       type: String,
       required: true,
@@ -46,6 +42,7 @@ export default {
     border-radius: 4px 0 0 4px;
     @include media(md, max) {
       width: 100%;
+      padding: 8px 16px;
       border-radius: 4px 4px 0 0;
     }
   }
@@ -53,6 +50,7 @@ export default {
     width: calc(100% - var(--title-width));
     border: 1px solid $border-color;
     border-radius: 0 4px 4px 0;
+    background: $white-color;
     @include media(md, max) {
       width: 100%;
       border-radius: 0 0 4px 4px;
@@ -66,6 +64,8 @@ export default {
     line-height: 1.6;
     color: $text-color;
     transition: all 0.3s ease;
+    word-wrap: break-word;
+    cursor: pointer;
     &:hover {
       background: lighten($primary-color, 53%);
     }
