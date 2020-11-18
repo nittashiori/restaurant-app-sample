@@ -3,6 +3,7 @@
     <div class="result">
       <p>検索結果（{{ shops.length }}件）</p>
       <p v-if="error" class="result--error">データの取得に失敗しました。</p>
+      <p v-if="shopsFlag">申し訳ありません。店舗が見つかりませんでした。</p>
     </div>
     <div class="shop-list">
       <ShopBlock
@@ -75,6 +76,10 @@ export default {
       setTimeout(() => {
         this.loading = false
       }, 2000)
+    }
+    // 店舗が見つからない場合の処理
+    if (this.shops.length === 0) {
+      this.shopsFlag = true
     }
   },
   methods: {
