@@ -18,11 +18,13 @@
         @onClick="accessDetail(shop)"
       />
     </div>
+    <Loading v-if="loading">読み込み中です</Loading>
   </div>
 </template>
 
 <script>
 import ShopBlock from '~/components/Modules/ShopBlock'
+import Loading from '~/components/Modules/Loading'
 
 const getCurrentPosition = () => {
   return new Promise((resolve, reject) => {
@@ -32,14 +34,19 @@ const getCurrentPosition = () => {
 export default {
   components: {
     ShopBlock,
+    Loading,
   },
   data() {
     return {
       shops: [],
       error: false,
+      loading: false,
+      shopsFlag: false,
     }
   },
   async mounted() {
+    const keyName = 'visited'
+    const keyValue = true
     // 現在位置の取得
     const position = await getCurrentPosition().catch(this.setError)
     const { data } = await this.$axios(
@@ -58,6 +65,17 @@ export default {
     })
     // 店の一覧を設定
     this.shops = data.results.shop
+    // sessionStorageにアクセス履歴を残す
+    if (!sessionStorage.getItem(keyName)) {
+      // sessionStorageにキーと値を追加
+      sessionStorage.setItem(keyName, keyValue)
+
+      // 初回アクセス時の処理
+      this.loading = true
+      setTimeout(() => {
+        this.loading = false
+      }, 2000)
+    }
   },
   methods: {
     // レスポンスあとの処理
@@ -91,6 +109,14 @@ export default {
 .shop-block {
   &:not(:first-child) {
     margin: 32px 0 0;
+    @include media(md, max) {
+      margin: 20px 0 0;
+    }
   }
+}
+.loading {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 </style>
