@@ -10,7 +10,7 @@
   @include font-normal;
   line-height: 1.6;
   @include media(md, max) {
-    padding: 12px 8px;
+    padding: 16px 8px;
     @include fts(8.75);
   }
 }

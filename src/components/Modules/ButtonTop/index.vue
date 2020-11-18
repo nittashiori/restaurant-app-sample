@@ -61,14 +61,20 @@ export default {
   &__inner {
     width: 80px;
   }
-  .icon-top {
-    margin: auto;
-  }
   &__text {
     margin: 8px 0 0;
     @include font-bold;
     @include fts(8.75);
     text-align: center;
+  }
+  .icon-top {
+    margin: auto;
+    transition: all 0.3s ease;
+  }
+  &:hover {
+    .icon-top {
+      transform: translateY(-8px);
+    }
   }
 }
 </style>
