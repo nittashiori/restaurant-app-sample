@@ -11,7 +11,7 @@
   @include font-bold;
   @include media(md, max) {
     max-width: 80px;
-    padding: 12px 8px;
+    padding: 16px 8px;
     @include fts(8.75);
   }
 }
