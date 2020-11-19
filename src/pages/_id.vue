@@ -55,8 +55,9 @@ export default {
     TableBlock,
   },
   async asyncData({ $axios, params, env, redirect }) {
+    const baseUrl = env.baseUrl
     const { data } = await $axios
-      .get('http://localhost:3000/api/gourmet/v1/', {
+      .get(baseUrl, {
         params: {
           key: process.env.apikey,
           id: params.id,

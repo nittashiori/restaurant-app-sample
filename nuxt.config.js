@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 export default {
   /*
    ** Nuxt rendering mode
@@ -55,6 +57,7 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/style-resources',
+    '@nuxtjs/dotenv',
     'nuxt-webfontloader',
     'nuxt-clipboard2',
   ],
@@ -89,6 +92,7 @@ export default {
    */
   build: {},
   env: {
-    apikey: '84cb53550715ea81',
+    apikey: process.env.API_KEY,
+    baseUrl: process.env.BASE_URL,
   },
 }
