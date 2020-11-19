@@ -41,13 +41,11 @@ export default {
     return {
       shops: [],
       error: false,
-      loading: false,
+      loading: true,
       shopsFlag: false,
     }
   },
   async mounted() {
-    const keyName = 'visited'
-    const keyValue = true
     // 現在位置の取得
     const position = await getCurrentPosition().catch(this.setError)
     const { data } = await this.$axios(
@@ -66,6 +64,9 @@ export default {
     })
     // 店の一覧を設定
     this.shops = data.results.shop
+
+    const keyName = 'visited'
+    const keyValue = true
     // sessionStorageにアクセス履歴を残す
     if (!sessionStorage.getItem(keyName)) {
       // sessionStorageにキーと値を追加
@@ -76,7 +77,10 @@ export default {
       setTimeout(() => {
         this.loading = false
       }, 2000)
+      return
     }
+    this.loading = false
+
     // 店舗が見つからない場合の処理
     if (this.shops.length === 0) {
       this.shopsFlag = true
