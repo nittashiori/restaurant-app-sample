@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 export default {
   /*
    ** Nuxt rendering mode
@@ -55,17 +57,9 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/style-resources',
+    '@nuxtjs/dotenv',
     'nuxt-webfontloader',
     'nuxt-clipboard2',
-    [
-      '@nuxtjs/dotenv',
-      {
-        filename:
-          process.env.NODE_ENV !== 'production'
-            ? './config/.env.dev'
-            : './config/.env.prod',
-      },
-    ],
   ],
   webfontloader: {
     google: {
