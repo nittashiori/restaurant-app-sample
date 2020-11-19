@@ -40,6 +40,7 @@ export default {
   asyncData({ env }) {
     return {
       baseUrl: env.baseUrl,
+      apiKey: env.apiKey,
     }
   },
   data() {
@@ -56,7 +57,7 @@ export default {
     const { data } = await this.$axios(this.baseUrl, {
       // パラメータの設定
       params: {
-        key: process.env.apikey,
+        key: process.env.apiKey,
         lat: position.coords.latitude, // 取得した緯度を設定
         lng: position.coords.longitude, // 取得した経度を設定
         format: 'json',

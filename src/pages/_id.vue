@@ -59,7 +59,7 @@ export default {
     const { data } = await $axios
       .get(baseUrl, {
         params: {
-          key: process.env.apikey,
+          key: process.env.apiKey,
           id: params.id,
           format: 'json',
         },
