@@ -37,6 +37,11 @@ export default {
     ShopBlock,
     Loading,
   },
+  asyncData({ env }) {
+    return {
+      baseUrl: env.baseUrl,
+    }
+  },
   data() {
     return {
       shops: [],
@@ -48,18 +53,15 @@ export default {
   async mounted() {
     // 現在位置の取得
     const position = await getCurrentPosition().catch(this.setError)
-    const { data } = await this.$axios(
-      'http://localhost:3000/api/gourmet/v1/',
-      {
-        // パラメータの設定
-        params: {
-          key: process.env.apikey,
-          lat: position.coords.latitude, // 取得した緯度を設定
-          lng: position.coords.longitude, // 取得した経度を設定
-          format: 'json',
-        },
-      }
-    ).catch((err) => {
+    const { data } = await this.$axios(this.baseUrl, {
+      // パラメータの設定
+      params: {
+        key: process.env.apikey,
+        lat: position.coords.latitude, // 取得した緯度を設定
+        lng: position.coords.longitude, // 取得した経度を設定
+        format: 'json',
+      },
+    }).catch((err) => {
       this.setError(err)
     })
     // 店の一覧を設定
