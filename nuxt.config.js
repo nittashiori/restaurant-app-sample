@@ -26,6 +26,34 @@ export default {
         name: 'description',
         content: process.env.npm_package_description || '',
       },
+      {
+        hid: 'og:site_name',
+        property: 'og:site_name',
+        content: 'HOTPEPPER SAMPLE APP',
+      },
+      { hid: 'og:type', property: 'og:type', content: 'website' },
+      {
+        hid: 'og:url',
+        property: 'og:url',
+        content: 'https://restaurant-app-sample.netlify.app/',
+      },
+      {
+        hid: 'og:title',
+        property: 'og:title',
+        content: 'HOTPEPPER SAMPLE APP',
+      },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content:
+          'ホットペッパーに掲載されてる近くのお店を10件表示するアプリです。位置情報を許可して使ってください。',
+      },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content:
+          'https://restaurant-app-sample.netlify.app/images/ogp/common.png',
+      },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
