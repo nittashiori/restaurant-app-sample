@@ -2,8 +2,8 @@
   <div class="container">
     <div class="result">
       <p>検索結果（{{ shops.length }}件）</p>
-      <p v-if="error" class="result--error">データの取得に失敗しました。</p>
-      <p v-if="shopsFlag">申し訳ありません。店舗が見つかりませんでした。</p>
+      <p v-show="error" class="result--error">データの取得に失敗しました。</p>
+      <p v-show="shopsFlag">申し訳ありません。店舗が見つかりませんでした。</p>
     </div>
     <div class="shop-list">
       <ShopBlock
@@ -19,7 +19,7 @@
         @onClick="accessDetail(shop)"
       />
     </div>
-    <Loading v-if="loading">読み込み中です</Loading>
+    <Loading v-show="loading">読み込み中です</Loading>
   </div>
 </template>
 
