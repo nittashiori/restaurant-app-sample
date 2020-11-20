@@ -54,6 +54,11 @@ export default {
         content:
           'https://restaurant-app-sample.netlify.app/images/ogp/common.png',
       },
+      {
+        hid: 'twitter:card',
+        property: 'twitter:card',
+        content: 'summary_large_image',
+      },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
