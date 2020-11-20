@@ -66,6 +66,7 @@ export default {
       },
     }).catch((err) => {
       this.setError(err)
+      this.loading = false
     })
     // 店の一覧を設定
     this.shops = data.results.shop
