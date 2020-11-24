@@ -60,7 +60,7 @@ export default {
 <style lang="scss" scoped>
 .shop-block {
   --pc-size: 238px;
-  --sp-size: 160px;
+  --sp-size: 80px;
   display: flex;
   align-items: flex-start;
   padding: 32px;
@@ -103,8 +103,8 @@ export default {
   width: calc(100% - var(--pc-size) - 40px);
   margin: 0 0 0 40px;
   @include media(md, max) {
-    width: calc(100% - var(--sp-size) - 24px);
-    margin: 0 0 0 24px;
+    width: calc(100% - var(--sp-size) - 16px);
+    margin: 0 0 0 16px;
   }
 }
 .shop-block__title {
@@ -112,11 +112,14 @@ export default {
   @include fts(15);
   color: $text-color;
   @include media(md, max) {
-    @include fts(12.5);
+    @include fts(10);
   }
 }
 .category {
   margin: 16px 0;
+  @include media(md, max) {
+    margin: 12px 0;
+  }
 }
 .shop-info {
   color: $text-color;

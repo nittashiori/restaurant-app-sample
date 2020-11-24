@@ -1,9 +1,16 @@
 <template>
   <div class="container">
     <div class="result">
-      <p>検索結果（{{ shops.length }}件）</p>
-      <p v-if="error" class="result--error">データの取得に失敗しました。</p>
-      <p v-if="shopsFlag">申し訳ありません。店舗が見つかりませんでした。</p>
+      <p class="search">検索結果（{{ shops.length }}件）</p>
+      <div v-if="error" class="result-error">
+        <p class="result-error__title">データの取得に失敗しました。</p>
+        <p class="result-error__text">
+          環境設定で位置情報を許可して再度リロードしてみてください。
+        </p>
+      </div>
+      <p v-if="shopsFlag" class="failed">
+        申し訳ありません。店舗が見つかりませんでした。
+      </p>
     </div>
     <div class="shop-list">
       <ShopBlock
@@ -52,8 +59,6 @@ export default {
     }
   },
   async mounted() {
-    console.log(this.baseUrl)
-    console.log(this.apiKey)
     // 現在位置の取得
     const position = await getCurrentPosition().catch(this.setError)
     const { data } = await this.$axios
@@ -117,10 +122,17 @@ export default {
   @include media(md, max) {
     margin: 20px auto;
   }
-  &--error {
+}
+.result-error {
+  margin: 16px 0;
+  &__title {
     text-align: center;
     @include font-bold;
     @include fts(12.5);
+  }
+  &__text {
+    margin-top: 8px;
+    @include fts(8.75);
   }
 }
 .shop-block {
