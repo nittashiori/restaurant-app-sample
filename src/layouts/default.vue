@@ -55,4 +55,15 @@ html {
 .button-top {
   margin: 40px 0 0;
 }
+.page-enter-active {
+  transition: all 0.4s ease;
+}
+.page-leave-active {
+  transition: all 0.4s ease;
+}
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+  transform: translateX(-5%);
+}
 </style>
