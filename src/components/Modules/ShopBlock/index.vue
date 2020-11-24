@@ -60,7 +60,7 @@ export default {
 <style lang="scss" scoped>
 .shop-block {
   --pc-size: 238px;
-  --sp-size: 80px;
+  --sp-size: 100px;
   display: flex;
   align-items: flex-start;
   padding: 32px;
