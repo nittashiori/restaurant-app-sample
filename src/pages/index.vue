@@ -59,8 +59,6 @@ export default {
     }
   },
   async mounted() {
-    console.log(this.baseUrl)
-    console.log(this.apiKey)
     // 現在位置の取得
     const position = await getCurrentPosition().catch(this.setError)
     const { data } = await this.$axios
