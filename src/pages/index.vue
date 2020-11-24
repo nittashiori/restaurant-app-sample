@@ -54,7 +54,7 @@ export default {
     return {
       shops: [],
       error: false,
-      loading: true,
+      loading: false,
       shopsFlag: false,
     }
   },
