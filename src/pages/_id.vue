@@ -39,6 +39,12 @@
       <TableBlock title="個室" :text="shop.private_room" />
       <TableBlock title="座敷" :text="shop.tatami" />
       <TableBlock title="備考" :text="shop.shop_detail_memo" />
+      <TableLinkBlock
+        title="公式ページ"
+        text="メニューや口コミなど詳細はホットペッパーグルメでご覧ください。"
+        :href="shop.urls.pc"
+        linktext="ホットペッパーグルメに移動"
+      />
     </div>
     <div class="button-area">
       <Button label="一覧に戻る" @onClick="back()" />
