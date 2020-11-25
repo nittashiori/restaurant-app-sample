@@ -2,13 +2,13 @@
   <div class="container">
     <div class="result">
       <p class="search">検索結果（{{ shops.length }}件）</p>
-      <div v-if="error" class="result-error">
+      <div v-if="isError" class="result-error">
         <p class="result-error__title">データの取得に失敗しました。</p>
         <p class="result-error__text">
           環境設定で位置情報を許可して再度リロードしてみてください。
         </p>
       </div>
-      <p v-if="shopsFlag" class="failed">
+      <p v-if="isShopsFlag" class="failed">
         申し訳ありません。店舗が見つかりませんでした。
       </p>
     </div>
@@ -26,8 +26,8 @@
         @onClick="accessDetail(shop)"
       />
     </div>
-    <SkeltonList v-if="skelton" />
-    <Loading v-if="loading">読み込み中です</Loading>
+    <SkeltonList v-if="isSkelton" />
+    <Loading v-if="isLoading">読み込み中です</Loading>
   </div>
 </template>
 
@@ -56,10 +56,10 @@ export default {
   data() {
     return {
       shops: [],
-      error: false,
-      loading: true,
-      shopsFlag: false,
-      skelton: true,
+      isError: false,
+      isLoading: true,
+      isShopsFlag: false,
+      isSkelton: true,
     }
   },
   async mounted() {
@@ -77,7 +77,8 @@ export default {
       })
       .catch((err) => {
         this.setError(err)
-        this.loading = false
+        this.isLoading = false
+        this.isSkelton = false
       })
     // 店の一覧を設定
     this.shops = data.results.shop
@@ -90,23 +91,23 @@ export default {
       sessionStorage.setItem(keyName, keyValue)
 
       // 初回アクセス時の処理
-      this.loading = true
-      this.skelton = true
+      this.isLoading = true
+      this.isSkelton = true
       setTimeout(() => {
-        this.skelton = false
+        this.isSkelton = false
       }, 500)
       setTimeout(() => {
-        this.loading = false
+        this.isLoading = false
       }, 2000)
       return
     }
-    this.loading = false
-    this.skelton = false
+    this.isLoading = false
+    this.isSkelton = false
 
     // 店舗が見つからない場合の処理
     if (this.shops.length === 0) {
-      this.shopsFlag = true
-      this.loading = false
+      this.isShopsFlag = true
+      this.isLoading = false
     }
   },
   methods: {
@@ -117,7 +118,7 @@ export default {
     // エラーが発生した場合の処理
     setError(err) {
       console.log(err)
-      this.error = true
+      this.isError = true
     },
     accessDetail(shop) {
       this.$router.push(`/${shop.id}`)

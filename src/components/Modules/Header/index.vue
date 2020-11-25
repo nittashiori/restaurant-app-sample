@@ -28,15 +28,15 @@ export default {
 <style lang="scss" scoped>
 .header {
   width: 100%;
-  padding: 20px 40px;
+  padding: 16px 40px;
   background: $primary-color;
   @include media(md, max) {
-    padding: 16px 20px;
+    padding: 12px 20px;
   }
   .logo {
     max-width: 480px;
     min-width: 200px;
-    width: 32%;
+    width: 28%;
     cursor: pointer;
   }
 }
