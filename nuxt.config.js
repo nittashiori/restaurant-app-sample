@@ -132,4 +132,5 @@ export default {
     apiKey: process.env.API_KEY,
     baseUrl: process.env.BASE_URL + '/api/gourmet/v1/',
   },
+  loading: false,
 }
