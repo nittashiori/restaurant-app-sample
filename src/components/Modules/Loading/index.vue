@@ -25,6 +25,7 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 9999;
 }
 .loading__inner {
   @include flex(wrap, flex-start, center);

@@ -67,7 +67,6 @@ export default {
   background: $white-color;
   box-shadow: 0 6px 12px -6px rgba(45, 45, 45, 0.1);
   transition: all 0.3s ease;
-  cursor: pointer;
   @include media(md, max) {
     padding: 16px;
   }
@@ -109,11 +108,6 @@ export default {
 }
 .shop-block__title {
   width: 100%;
-  @include fts(15);
-  color: $text-color;
-  @include media(md, max) {
-    @include fts(10);
-  }
 }
 .category {
   margin: 16px 0;
@@ -121,14 +115,7 @@ export default {
     margin: 12px 0;
   }
 }
-.shop-info {
-  color: $text-color;
-  @include media(md, max) {
-    @include fts(8.75);
-  }
-}
 .shop-info__item {
-  line-height: 1.6;
   &:not(:first-child) {
     margin: 16px 0 0;
   }
