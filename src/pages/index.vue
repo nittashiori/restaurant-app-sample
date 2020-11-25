@@ -26,6 +26,7 @@
         @onClick="accessDetail(shop)"
       />
     </div>
+    <SkeltonList v-if="skelton" />
     <Loading v-if="loading">読み込み中です</Loading>
   </div>
 </template>
@@ -33,6 +34,7 @@
 <script>
 import ShopBlock from '~/components/Modules/ShopBlock'
 import Loading from '~/components/Modules/Loading'
+import SkeltonList from '~/components/Organisms/SkeltonList'
 
 const getCurrentPosition = () => {
   return new Promise((resolve, reject) => {
@@ -42,6 +44,7 @@ const getCurrentPosition = () => {
 export default {
   components: {
     ShopBlock,
+    SkeltonList,
     Loading,
   },
   asyncData({ env }) {
@@ -56,6 +59,7 @@ export default {
       error: false,
       loading: true,
       shopsFlag: false,
+      skelton: true,
     }
   },
   async mounted() {
@@ -87,16 +91,22 @@ export default {
 
       // 初回アクセス時の処理
       this.loading = true
+      this.skelton = true
+      setTimeout(() => {
+        this.skelton = false
+      }, 500)
       setTimeout(() => {
         this.loading = false
       }, 2000)
       return
     }
     this.loading = false
+    this.skelton = false
 
     // 店舗が見つからない場合の処理
     if (this.shops.length === 0) {
       this.shopsFlag = true
+      this.loading = false
     }
   },
   methods: {
@@ -144,7 +154,7 @@ export default {
   }
 }
 .loading {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
 }
