@@ -23,7 +23,12 @@
       />
     </div>
     <div class="table-area">
-      <TableBlock title="住所" :text="shop.address" />
+      <TableLinkBlock
+        title="住所"
+        :text="shop.address"
+        :href="'	http://maps.google.co.jp/maps?q=' + shop.name"
+        linktext="googlemapで見る"
+      />
       <TableBlock title="アクセス" :text="shop.access" />
       <TableBlock title="営業時間" :text="shop.open" />
       <TableBlock title="定休日" :text="shop.close" />
@@ -46,6 +51,7 @@ import Button from '~/components/Atoms/Button'
 import Category from '~/components/Atoms/Category'
 import Coupon from '~/components/Modules/Coupon'
 import TableBlock from '~/components/Modules/TableBlock'
+import TableLinkBlock from '~/components/Modules/TableLinkBlock'
 
 export default {
   components: {
@@ -53,6 +59,7 @@ export default {
     Category,
     Coupon,
     TableBlock,
+    TableLinkBlock,
   },
   async asyncData({ $axios, params, env, redirect }) {
     const baseUrl = env.baseUrl
