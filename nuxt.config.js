@@ -29,7 +29,7 @@ export default {
       {
         hid: 'og:site_name',
         property: 'og:site_name',
-        content: 'HOTPEPPER SAMPLE APP',
+        content: 'HotPepper Position App',
       },
       { hid: 'og:type', property: 'og:type', content: 'website' },
       {
@@ -40,7 +40,7 @@ export default {
       {
         hid: 'og:title',
         property: 'og:title',
-        content: 'HOTPEPPER SAMPLE APP',
+        content: 'HotPepper Position App',
       },
       {
         hid: 'og:description',
