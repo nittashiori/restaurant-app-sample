@@ -68,16 +68,21 @@ export default {
   margin-top: 8px;
   color: #1ea7fd;
   text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
+  transition: all 0.3s ease;
   svg {
     width: 18px;
     height: 18px;
     fill: currentColor;
+    transition: all 0.3s ease;
     @include media(md, max) {
       width: 16px;
       height: 16px;
+    }
+  }
+  &:hover {
+    color: darken(#1ea7fd, 10%);
+    svg {
+      transform: translateX(4px);
     }
   }
 }
