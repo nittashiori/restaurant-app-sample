@@ -61,9 +61,21 @@ export default {
       },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
-      { rel: 'icon alternate', type: 'image/png', href: '/favicon.png' },
+      {
+        rel: 'icon',
+        type: 'image/x-icon',
+        href: '/images/favicon/favicon.ico',
+      },
+      {
+        rel: 'icon',
+        type: 'image/svg+xml',
+        href: '/images/favicon/favicon.svg',
+      },
+      {
+        rel: 'icon alternate',
+        type: 'image/png',
+        href: '/images/favicon/favicon.png',
+      },
       {
         rel: 'apple-touch-icon',
         size: '180x180',
