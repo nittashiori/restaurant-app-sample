@@ -64,6 +64,11 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
       { rel: 'icon alternate', type: 'image/png', href: '/favicon.png' },
+      {
+        rel: 'apple-touch-icon',
+        size: '180x180',
+        href: '/images/apple-touch-icon/common.png',
+      },
     ],
   },
   /*
