@@ -108,6 +108,9 @@ export default {
 }
 .shop-block__title {
   width: 100%;
+  @include media(md, max) {
+    @include fts(12.5);
+  }
 }
 .category {
   margin: 16px 0;
@@ -118,6 +121,9 @@ export default {
 .shop-info__item {
   &:not(:first-child) {
     margin: 16px 0 0;
+  }
+  @include media(md, max) {
+    @include fts(8.75);
   }
 }
 </style>
